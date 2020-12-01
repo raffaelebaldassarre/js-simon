@@ -11,13 +11,27 @@ $(function() {
            numeriCasuali.push(randomNumber);
         }
     }
-    console.log(numeriCasuali);
+    //console.log(numeriCasuali);
     //Un alert espone 5 numeri casuali diversi.
     document.getElementById("game").innerHTML =  numeriCasuali;
+
+    var seconds = 30;
+    var interval = setInterval(function(){
+
+        document.getElementById("secondi").innerHTML = seconds;
+        if( seconds === 0){
+            clearInterval(interval);
+        }else{
+            seconds--;
+        }
+        if (seconds < 10){
+            $("h3").css("color","red");
+        }
+    },1000);
     
     setTimeout(function () {
         game.addClass("remove");//Faccio scomparire i numeri generati dal pc
-    }, 29500);
+    }, 31000);
 
     //Dopo 30 secondi l’utente deve inserire, un prompt alla volta, i numeri che ha visto precedentemente.
     setTimeout(function(){
@@ -34,7 +48,7 @@ $(function() {
                 alert("Hey ricorda, hai già inserito questo numero oppure non è compreso tra 1 e 100, prova con un altro numero");
             }
         }
-        console.log(numeriAnswer);
+        //console.log(numeriAnswer);
         // //Una volta inseriti i 5 numeri, il software dice quanti e quali numeri sono stati ricordati. */
         for (var j = 0; j < numeriAnswer.length; j++) {
             if(numeriCasuali.includes(numeriAnswer[j])){
@@ -43,8 +57,8 @@ $(function() {
                 numeriNonRicordati.push(numeriCasuali[j]);
             }
         }
-        console.log(numeriRicordati);
-        console.log(numeriNonRicordati);
+        //console.log(numeriRicordati);
+        //console.log(numeriNonRicordati);
 
         if(numeriRicordati.length==0){
             alert("Non hai ricordato nessun numero, dai non disperare fra poco avrai dimenticato tutto");
@@ -54,6 +68,5 @@ $(function() {
             alert("Hai ricordato " + numeriRicordati.length + " numeri " + numeriRicordati);
             alert("Però non hai ricordato " + numeriNonRicordati.length + " numeri " + numeriNonRicordati);
         }
-    },30000);
-
+    },31500);
 });
