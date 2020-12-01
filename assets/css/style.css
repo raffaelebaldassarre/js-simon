@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    text-align: center;
+}
+
+.pb_50{
+    padding-bottom: 50px;
+}
 
 .remove{
     display: none;
@@ -10,4 +17,8 @@
 
 p{
     font-size: 70px;
+}
+
+.small{
+    font-size: 20px;
 }
